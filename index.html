@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>حاسبة النزول 75 الشاملة</title>
+    <style>
+        body { font-family: 'Tahoma', sans-serif; background-color: #0b4d22; color: white; padding: 10px; text-align: center; margin: 0; }
+        .container { background: #fff; color: #333; padding: 15px; border-radius: 20px; max-width: 400px; margin: 10px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 4px solid #d9992f; }
+        h2 { color: #1f4e79; margin-bottom: 5px; font-size: 20px; }
+        .info { font-size: 11px; color: #888; margin-bottom: 10px; }
+        .section-title { background: #1f4e79; color: white; padding: 5px; border-radius: 5px; margin-top: 10px; font-weight: bold; font-size: 13px; text-align: right; padding-right: 10px; }
+        .scroll-area { max-height: 65vh; overflow-y: auto; margin-top: 5px; border: 1px solid #eee; border-radius: 10px; }
+        
+        .row { display: flex; justify-content: space-between; align-items: center; padding: 12px 10px; border-bottom: 1px solid #eee; }
+        .row:last-child { border-bottom: none; }
+        .row label { flex-grow: 1; text-align: right; cursor: pointer; font-size: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        
+        .card-val { color: #d9992f; font-size: 15px; margin-left: 10px; background: #fff9f0; padding: 2px 6px; border-radius: 4px; border: 1px solid #ffe0b3; }
+        input[type="checkbox"] { width: 30px; height: 30px; cursor: pointer; accent-color: #0b4d22; }
+
+        .footer-box { background: #f9f9f9; padding: 15px; border-top: 4px solid #d9992f; margin-top: 15px; border-radius: 15px; }
+        #total-box { font-size: 45px; font-weight: bold; color: #1f4e79; line-height: 1; }
+        #status { margin-top: 8px; font-weight: bold; font-size: 18px; }
+        .can-down { color: #27ae60 !important; }
+        
+        .btn-reset { width: 100%; padding: 12px; background: #e74c3c; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🃏 حاسبة النزول (75)</h2>
+    <p class="info">(اضغط على الاسم أو المربع للحساب)</p>
+
+    <div class="scroll-area">
+        <div class="section-title">المتشابهات (نفس الرقم)</div>
+        <div class="row"><label>4 أكك <span class="card-val">40</span></label><input type="checkbox" value="40" onchange="calc()"></div>
+        <div class="row"><label>3 أكك <span class="card-val">30</span></label><input type="checkbox" value="30" onchange="calc()"></div>
+        <div class="row"><label>4 تسعات <span class="card-val">36</span></label><input type="checkbox" value="36" onchange="calc()"></div>
+        <div class="row"><label>3 تسعات <span class="card-val">27</span></label><input type="checkbox" value="27" onchange="calc()"></div>
+        <div class="row"><label>4 ثمانيات <span class="card-val">32</span></label><input type="checkbox" value="32" onchange="calc()"></div>
+        <div class="row"><label>3 ثمانيات <span class="card-val">24</span></label><input type="checkbox" value="24" onchange="calc()"></div>
+        <div class="row"><label>4 سبعات <span class="card-val">28</span></label><input type="checkbox" value="28" onchange="calc()"></div>
+        <div class="row"><label>3 سبعات <span class="card-val">21</span></label><input type="checkbox" value="21" onchange="calc()"></div>
+        <div class="row"><label>4 ستات <span class="card-val">24</span></label><input type="checkbox" value="24" onchange="calc()"></div>
+        <div class="row"><label>3 ستات <span class="card-val">18</span></label><input type="checkbox" value="18" onchange="calc()"></div>
+        <div class="row"><label>4 خمسات <span class="card-val">20</span></label><input type="checkbox" value="20" onchange="calc()"></div>
+        <div class="row"><label>3 خمسات <span class="card-val">15</span></label><input type="checkbox" value="15" onchange="calc()"></div>
+        <div class="row"><label>4 أربعات <span class="card-val">16</span></label><input type="checkbox" value="16" onchange="calc()"></div>
+        <div class="row"><label>3 أربعات <span class="card-val">12</span></label><input type="checkbox" value="12" onchange="calc()"></div>
+        <div class="row"><label>4 ثلاثات <span class="card-val">12</span></label><input type="checkbox" value="12" onchange="calc()"></div>
+        <div class="row"><label>3 ثلاثات <span class="card-val">9</span></label><input type="checkbox" value="9" onchange="calc()"></div>
+        <div class="row"><label>4 اثنينات <span class="card-val">8</span></label><input type="checkbox" value="8" onchange="calc()"></div>
+        <div class="row"><label>3 اثنينات <span class="card-val">6</span></label><input type="checkbox" value="6" onchange="calc()"></div>
+
+        <div class="section-title">المتسلسل (نفس اللون)</div>
+        <div class="row"><label>7 - 8 - 9 <span class="card-val">24</span></label><input type="checkbox" value="24" onchange="calc()"></div>
+        <div class="row"><label>6 - 7 - 8 <span class="card-val">21</span></label><input type="checkbox" value="21" onchange="calc()"></div>
+        <div class="row"><label>5 - 6 - 7 <span class="card-val">18</span></label><input type="checkbox" value="18" onchange="calc()"></div>
+        <div class="row"><label>4 - 5 - 6 <span class="card-val">15</span></label><input type="checkbox" value="15" onchange="calc()"></div>
+        <div class="row"><label>3 - 4 - 5 <span class="card-val">12</span></label><input type="checkbox" value="12" onchange="calc()"></div>
+        <div class="row"><label>2 - 3 - 4 <span class="card-val">9</span></label><input type="checkbox" value="9" onchange="calc()"></div>
+        <div class="row"><label>A - 2 - 3 <span class="card-val">15</span></label><input type="checkbox" value="15" onchange="calc()"></div>
+    </div>
+
+    <div class="footer-box">
+        <div id="total-box">0</div>
+        <div id="status" style="color: #e74c3c;">باقي لك 75</div>
+        <button class="btn-reset" onclick="resetAll()">🔄 تصفير</button>
+    </div>
+</div>
+
+<script>
+    function calc() {
+        let total = 0;
+        document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+            total += parseInt(cb.value);
+        });
+        
+        let box = document.getElementById('total-box');
+        let status = document.getElementById('status');
+        box.innerText = total;
+
+        if (total >= 75) {
+            box.classList.add("can-down");
+            status.innerText = "✅ نزل ورقك!";
+            status.style.color = "#27ae60";
+        } else {
+            box.classList.remove("can-down");
+            status.innerText = "باقي لك " + (75 - total);
+            status.style.color = "#e74c3c";
+        }
+    }
+
+    function resetAll() {
+        document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        calc();
+    }
+</script>
+
+</body>
+</html>
